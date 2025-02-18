@@ -14,5 +14,7 @@ runs:
   using: docker
   image: 'Dockerfile'
   args:
-    - --org ${{inputs.organization-name}}
-    - --token ${{inputs.token}}
+    - --org
+    - ${{inputs.organization-name}}
+    - --token
+    - ${{inputs.token}}
