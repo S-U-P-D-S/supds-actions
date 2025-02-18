@@ -1,0 +1,14 @@
+name: Organization Repositories Reporter Action
+description: This action create a summary report in markdown format with all repositories information
+author: pingmyheart
+inputs:
+  organization-name:
+    description: Organization name which the action is running
+    required: true
+    default: ${{github.repository_owner}}
+runs:
+  using: docker
+  image: 'Dockerfile'
+  args:
+    - --org ${{inputs.organization-name}}
+    - --token ${{secrets.GITHUB_TOKEN}}
