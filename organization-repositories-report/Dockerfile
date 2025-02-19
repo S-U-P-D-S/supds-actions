@@ -1,9 +1,11 @@
-FROM ubuntu:22.04
+FROM python:3.9-alpine
 
-RUN apt install -y curl \
-    && apt install -y jq \
-    && apt clean
+COPY requirements.txt .
+COPY entrypoint.py .
 
-COPY entrypoint.bash .
+RUN mkdir /output \
+    && pip3 install -r requirements.txt \
+    && chmod +x entrypoint.py
 
-ENTRYPOINT ["./entrypoint.bash"]
+
+ENTRYPOINT ["./entrypoint.py"]
