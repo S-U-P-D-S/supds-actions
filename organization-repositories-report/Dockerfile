@@ -8,4 +8,4 @@ RUN mkdir /output \
     && chmod +x entrypoint.py
 
 
-ENTRYPOINT ["./entrypoint.py"]
+ENTRYPOINT ["python", "entrypoint.py"]
