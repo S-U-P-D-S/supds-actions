@@ -31,3 +31,7 @@ print(content)
 
 with open('/output/report.md', 'w') as file:
     file.write(content)
+
+import shutil
+
+shutil.copytree("/output", "/github/workspace/output")
