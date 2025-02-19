@@ -1,5 +1,9 @@
 FROM python:3.9-alpine
 
+# Set working directory
+WORKDIR /app
+
+# Copy necessary files
 COPY requirements.txt .
 COPY entrypoint.py .
 
@@ -8,4 +12,4 @@ RUN mkdir /output \
     && chmod +x entrypoint.py
 
 
-ENTRYPOINT ["python", "entrypoint.py"]
+ENTRYPOINT ["python", "/app/entrypoint.py"]
